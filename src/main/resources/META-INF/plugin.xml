@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>com.github.gfjalar.intellij-wordspec-plugin</id>
+    <name>WordSpec</name>
+    <vendor email="support@piotrgalar.com" url="https://piotrgalar.com">Piotr Galar</vendor>
+
+    <description>Allows running single WordSpecLike ScalaTest test cases</description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <runLineMarkerContributor language=""
+                                  implementationClass="com.github.gfjalar.intellij.wordspec.plugin.WordSpecLineMarkerContributor"/>
+        <runConfigurationProducer
+          implementation="com.github.gfjalar.intellij.wordspec.plugin.WordSpecConfigurationProducer"/>
+    </extensions>
+</idea-plugin>
