@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.github.gfjalar'
-version '1.0'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -18,9 +18,6 @@ dependencies {
 intellij {
     version '2020.1.1'
     plugins 'com.intellij.java'
-}
-patchPluginXml {
-    changeNotes "Initial intellij-wordspec-plugin release"
 }
 
 prepareSandbox { from "$rootDir/plugins" }
