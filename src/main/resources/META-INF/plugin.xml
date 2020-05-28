@@ -6,7 +6,7 @@
     <description><![CDATA[
       <h2>This <a href="https://www.jetbrains.org/intellij/sdk/docs/intro/welcome.html">IntelliJ Plugin</a> allows running single <a href="https://www.scalatest.org/at_a_glance/WordSpec">WordSpecLike</a> <a href="https://www.scalatest.org">ScalaTest</a> test cases from <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> using <a href="https://gradle.org/">Gradle</a>.</h2>
       <br />
-      <p>To do that it adds next green <b>line markings</b> next to the test cases and creates configurations with parameters following this format: <i>--tests "package.Class.this should be WordSpec string"</i></p>
+      <p>To do that it adds green <b>line markings</b> next to the test cases and creates configurations with parameters following this format: <i>--tests "package.Class.this should be WordSpec string"</i></p>
       <br />
       <p>For it to function correctly, <b>Scala</b> plugin has to be installed and project setup has to know how to parse <i>--tests</i> parameter as intended.</p>
     ]]></description>
