@@ -21,6 +21,7 @@ import com.intellij.openapi.util.Ref;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
+import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -74,13 +75,14 @@ class WordSpecConfigurationProducer extends LazyRunConfigurationProducer<Externa
     ExternalSystemRunConfiguration runConfiguration = (ExternalSystemRunConfiguration) configuration.getConfiguration();
 
     if (testTaskNames.size() == 1) {
-      runConfiguration.getSettings().setTaskNames(testTaskNames.subList(0, 1));
+      String name = testTaskNames.get(0);
+      runConfiguration.getSettings().setTaskNames(Arrays.asList("clean" + StringUtils.capitalize(name), name));
       startRunnable.run();
     } else {
       JBPopupFactory.getInstance()
         .createPopupChooserBuilder(testTaskNames)
         .setItemChosenCallback(it -> {
-          runConfiguration.getSettings().setTaskNames(Arrays.asList(it));
+          runConfiguration.getSettings().setTaskNames(Arrays.asList("clean" + StringUtils.capitalize(it), it));
           startRunnable.run();
         })
         .createPopup()
