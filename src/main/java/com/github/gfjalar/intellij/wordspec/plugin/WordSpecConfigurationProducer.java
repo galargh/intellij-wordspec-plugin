@@ -21,9 +21,11 @@ import com.intellij.openapi.util.Ref;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.util.PsiTreeUtil;
+import com.intellij.util.PopupUtilsKt;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -81,12 +83,14 @@ class WordSpecConfigurationProducer extends LazyRunConfigurationProducer<Externa
     } else {
       JBPopupFactory.getInstance()
         .createPopupChooserBuilder(testTaskNames)
+        .setTitle("Run Task")
+        .setSelectionMode(ListSelectionModel.SINGLE_SELECTION)
         .setItemChosenCallback(it -> {
           runConfiguration.getSettings().setTaskNames(Arrays.asList("clean" + StringUtils.capitalize(it), it));
           startRunnable.run();
         })
         .createPopup()
-        .showInBestPositionFor(context.getDataContext());
+        .show(PopupUtilsKt.getBestPopupPosition(context.getDataContext()));
     }
   }
 
