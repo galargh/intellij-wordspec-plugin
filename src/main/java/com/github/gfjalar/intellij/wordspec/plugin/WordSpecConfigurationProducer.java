@@ -41,8 +41,7 @@ class WordSpecConfigurationProducer extends LazyRunConfigurationProducer<Externa
     PsiElement element = contextLocation.getPsiElement();
     if (element == null) { return false; }
 
-    //WordSpecExpression expression = WordSpecExpression.fromLeafIdentifier(element);
-    WordSpecExpression expression = WordSpecExpression.fromLeafStringContent(element);
+    WordSpecExpression expression = WordSpecExpression.fromLeafIdentifier(element);
     if (expression == null) { return false; }
 
     final PsiClass containingClass = PsiTreeUtil.getParentOfType(element, PsiClass.class);
@@ -102,8 +101,7 @@ class WordSpecConfigurationProducer extends LazyRunConfigurationProducer<Externa
     PsiElement element = contextLocation.getPsiElement();
     if (element == null) { return false; }
 
-    //WordSpecExpression expression = WordSpecExpression.fromLeafIdentifier(element);
-    WordSpecExpression expression = WordSpecExpression.fromLeafStringContent(element);
+    WordSpecExpression expression = WordSpecExpression.fromLeafIdentifier(element);
     if (expression == null) { return false; }
 
     final PsiClass containingClass = PsiTreeUtil.getParentOfType(element, PsiClass.class);

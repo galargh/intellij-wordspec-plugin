@@ -44,19 +44,10 @@ public class WordSpecExpression {
     }
   }
 
-  private static WordSpecExpression fromLeafIdentifier(PsiElement element) {
+  public static WordSpecExpression fromLeafIdentifier(PsiElement element) {
     if (! (element instanceof LeafPsiElement)) { return null; }
     if (! ((LeafPsiElement) element).getElementType().toString().equals("identifier")) { return null; }
     if (element.getParent() == null || element.getParent().getParent() == null) { return null; }
-    return apply(element.getParent().getParent());
-  }
-
-  public static WordSpecExpression fromLeafStringContent(PsiElement element) {
-    if (! (element instanceof LeafPsiElement)) { return null; }
-    if (element.getText().contains("abc")) { System.out.println(((LeafPsiElement) element).getElementType().toString()); }
-    if (! ((LeafPsiElement) element).getElementType().toString().equals("string content")) { return null; }
-    if (element.getParent() == null || element.getParent().getParent() == null) { return null; }
-    if (element.getParent().getParent().getFirstChild() != element.getParent()) { return null; }
     return apply(element.getParent().getParent());
   }
 

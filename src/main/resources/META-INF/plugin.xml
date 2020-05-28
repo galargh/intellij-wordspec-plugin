@@ -24,7 +24,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
-        <runLineMarkerContributor language=""
+        <runLineMarkerContributor language="Scala"
                                   implementationClass="com.github.gfjalar.intellij.wordspec.plugin.WordSpecLineMarkerContributor"/>
         <runConfigurationProducer
           implementation="com.github.gfjalar.intellij.wordspec.plugin.WordSpecConfigurationProducer"/>

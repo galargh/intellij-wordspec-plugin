@@ -12,10 +12,15 @@ import java.util.function.Function;
 public class WordSpecLineMarkerContributor extends RunLineMarkerContributor {
   @Override
   public @Nullable Info getInfo(@NotNull PsiElement element) {
-    WordSpecExpression expression = WordSpecExpression.fromLeafStringContent(element);
+    WordSpecExpression expression = WordSpecExpression.fromLeafIdentifier(element);
     if (expression != null) {
       Function<PsiElement, String> tooltipProvider = it -> expression.toSentence();
-      return new Info(AllIcons.RunConfigurations.TestState.Run, ExecutorAction.getActions(1), tooltipProvider);
+      return new Info(AllIcons.RunConfigurations.TestState.Run, ExecutorAction.getActions(1), tooltipProvider) {
+        @Override
+        public boolean shouldReplace(@NotNull Info other) {
+          return true;
+        }
+      };
     }
     return null;
   }
