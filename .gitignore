@@ -9,3 +9,6 @@ build
 
 # Ignore plugins directory
 plugins
+
+# jenv
+.java-version

@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.github.gfjalar'
-version '1.0.3'
+version '1.0.4'
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2020.2'
+    version '2020.3'
     plugins 'com.intellij.java'
 }
 
@@ -25,3 +25,6 @@ prepareSandbox { from "$rootDir/plugins" }
 publishPlugin {
     token = intellijPublishToken
 }
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
