@@ -12,3 +12,9 @@ plugins
 
 # jenv
 .java-version
+
+# OSX
+.DS_Store
+
+# Ignore gradle.properties for now
+gradle.properties
