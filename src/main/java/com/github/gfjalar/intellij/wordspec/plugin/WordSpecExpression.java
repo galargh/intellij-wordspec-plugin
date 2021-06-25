@@ -20,16 +20,23 @@ public class WordSpecExpression {
   public final boolean isLeaf;
 
   public WordSpecExpression(PsiElement element) {
-    this.element = element;
-
     assert element.toString() == "InfixExpression";
-    assert element.getChildren().length > 1;
-    assert element.getFirstChild().toString() == "StringLiteral";
-    assert element.getLastChild().toString() == "BlockExpression";
-    assert element.getChildren()[1].toString().startsWith("ReferenceExpression");
 
-    this.subject = element.getFirstChild().getText().substring(1, element.getFirstChild().getTextLength() - 1);
-    this.word = element.getChildren()[1].getText();
+    PsiElement[] children = element.getChildren();
+
+    assert children.length >= 3;
+
+    PsiElement firstChild = children[0];
+    PsiElement secondChild = children[1];
+    PsiElement lastChild = children[children.length - 1];
+
+    assert firstChild.toString() == "StringLiteral";
+    assert secondChild.toString().startsWith("ReferenceExpression");
+    assert lastChild.toString() == "BlockExpression";
+
+    this.element = element;
+    this.subject = firstChild.getText().replaceAll("^.|.$", "");
+    this.word = secondChild.getText();
     this.isNode = WORD_SPEC_NODES.contains(word);
     this.isLeaf = WORD_SPEC_LEAVES.contains(word);
 
