@@ -21,6 +21,12 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>1.0.8</td>
+                    <td>
+                        Updated IntelliJ IDEA dependency
+                    </td>
+                </tr>
+                <tr>
                     <td>1.0.7</td>
                     <td>
                         Updated IntelliJ IDEA dependency
